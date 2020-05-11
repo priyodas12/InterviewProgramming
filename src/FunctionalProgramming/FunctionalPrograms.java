@@ -5,7 +5,7 @@ import java.util.Optional;
 public class FunctionalPrograms {
     public static void main(String[] args) {
         Optional<String> name=Optional.of("priyo");
-        Optional<String> name2=Optional.ofNullable("abc");
+        Optional<String> name2=Optional.ofNullable(null);
 
         System.out.println(name.isEmpty());
         System.out.println(name.isPresent());
@@ -18,6 +18,6 @@ public class FunctionalPrograms {
 
         name2.ifPresent(s -> s.toCharArray());
 
-        name
+        name2.ifPresentOrElse(s-> System.out.println(s),() -> System.out.println("nothing"));
     }
 }
