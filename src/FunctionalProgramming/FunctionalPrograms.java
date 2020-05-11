@@ -13,7 +13,8 @@ public class FunctionalPrograms {
         String orELse=name.orElse("abdf");
         System.out.println(orELse);
 
-        //String orELse2=name2.orElse("abdf");
+        String orElse2=name2.map(String::toLowerCase).orElseThrow(IllegalAccessError::new);
+
         System.out.println(name2);
     }
 }
