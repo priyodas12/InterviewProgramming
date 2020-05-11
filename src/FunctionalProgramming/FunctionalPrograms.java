@@ -4,11 +4,16 @@ import java.util.Optional;
 
 public class FunctionalPrograms {
     public static void main(String[] args) {
-        Optional<String> empty=Optional.of("priyo");
-        System.out.println(empty.isEmpty());
-        System.out.println(empty.isPresent());
+        Optional<String> name=Optional.of("priyo");
+        Optional<String> name2=Optional.ofNullable(null);
 
-        String orELse=empty.orElse("abdf");
+        System.out.println(name.isEmpty());
+        System.out.println(name.isPresent());
+
+        String orELse=name.orElse("abdf");
         System.out.println(orELse);
+
+        //String orELse2=name2.orElse("abdf");
+        System.out.println(name2);
     }
 }
