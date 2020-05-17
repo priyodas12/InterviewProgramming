@@ -2,6 +2,7 @@ package Java8.Stream;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CollectOps {
 
@@ -38,7 +39,26 @@ public class CollectOps {
         System.out.println(persons);*/
 
         //right approach
+        //collectors an utility class
+        List<String> listOfPplAgeLt90=
+        createPeople()
+                .stream()
+                .filter(p->p.getAge()<90)
+                .map(p->p.getName())
+                .map(String::toUpperCase)
+                /*.reduce(new ArrayList<String>(),
+                        (names,name)->{
+                            names.add(name);
+                            return names;
+                        },
+                        (names1,names2)->{
+                            names1.addAll(names2);
+                            return names1;
+                        }
+                ).forEach(System.out::println);*/
+                .collect(Collectors.toList());
 
+        System.out.println(listOfPplAgeLt90);
 
     }
 }
