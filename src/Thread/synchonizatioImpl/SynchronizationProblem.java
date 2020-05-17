@@ -2,16 +2,21 @@ package Thread.synchonizatioImpl;
 
 public class SynchronizationProblem {
 
-    private volatile int count=0;
+    private  int count=0;
 
-    public void doCount(){
-       Thread t1= new Thread(
+    private synchronized  void increment(){
+        count++;
+        //System.out.println(Thread.currentThread().getName()+" >> "+count);
+    }
+    public static void main(String[] args) {
+        SynchronizationProblem sp=new SynchronizationProblem();
+
+        Thread t1= new Thread(
                 new Runnable() {
                     @Override
                     public void run() {
                         for(int i=0;i<10000;i++){
-
-                            count++;
+                           sp.increment();
                         }
                     }
                 }
@@ -22,12 +27,12 @@ public class SynchronizationProblem {
                     @Override
                     public void run() {
                         for(int i=0;i<10000;i++){
-
-                            count++;
+                            sp.increment();
                         }
                     }
                 }
         );
+
         t1.start();
         t2.start();
 
@@ -38,11 +43,6 @@ public class SynchronizationProblem {
             e.printStackTrace();
         }
 
-        System.out.println(count);
-    }
-
-    public static void main(String[] args) {
-        SynchronizationProblem sp=new SynchronizationProblem();
-        sp.doCount();
+        System.out.println(sp.count);
     }
 }
