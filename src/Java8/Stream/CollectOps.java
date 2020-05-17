@@ -38,7 +38,7 @@ public class CollectOps {
 
         System.out.println(persons);*/
 
-        //right approach
+        //right approach can work with parallel stream
         //collectors an utility class
         List<String> listOfPplAgeLt90=
         createPeople()
