@@ -18,6 +18,15 @@ public class FlatMapImpl {
 
         word_length.forEach(System.out::println);
 
+        //now process unique word in the list so here output will be List<String[]>
+        //map will produce List<String> to List<String[]>
+        System.out.println(words.stream().map(e->e.split("")).distinct().collect(Collectors.toList()));
+
+        System.out.println(words.stream()
+                .map(e->e.split(""))
+                .flatMap(Arrays::stream)
+                .distinct()
+                .collect(Collectors.toList()));
 
     }
 }

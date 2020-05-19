@@ -1,34 +1,25 @@
 package basic.strings;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class DuplicateChar {
-//
-//    public static void main(String[] args) {
-//        Scanner scn=new Scanner(System.in);
-//
-//        System.out.println("Enter any String::");
-//
-//        String input=scn.nextLine();
-//
-//        char [] s2=input.toCharArray();
-//
-//        Map<Character,Integer> hm=new HashMap<>();
-//        for(int i=0;i<s2.length;i++){
-//            if(hm.containsKey(s2[i])){
-//                hm.put(s2[i],hm.get(s2[i])+1);
-//            }
-//            else{
-//                hm.put(s2[i],1);
-//            }
-//        }
-//        for(int i=0;i<hm.keySet().size();i++){
-//            if(hm.get(s2[i])>1){
-//                System.out.println(s2[i]+" present "+hm.get(s2[i])+" times");
-//            }
-//        }
-//}
-    public static void main (String[] args) throws java.lang.Exception
+
+      public static void main(String[] args) {
+          Scanner scn = new Scanner(System.in);
+
+          System.out.println("Enter any String::");
+
+          String input = scn.nextLine();
+
+          char[] s2 = input.toCharArray();
+
+          input.chars().mapToObj(c -> (char) c).distinct().sorted().forEach(System.out::print);
+
+      }
+}
+
+    /*public static void main (String[] args) throws java.lang.Exception
     {
         Scanner sc = new Scanner(System.in);
         System.out.println("enter string");
@@ -54,4 +45,4 @@ public class DuplicateChar {
             }
         }
         System.out.println(m);
-    }}
+    }*/
