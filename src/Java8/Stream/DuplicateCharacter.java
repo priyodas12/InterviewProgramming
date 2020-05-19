@@ -9,7 +9,8 @@ public class DuplicateCharacter {
 
     public static void main(String[] args) {
        String s="asjklkaskd";
-       char [] chars=s.toCharArray();
-       //Arrays.asList(chars).stream().collect(Collectors.toMap(Character::charValue,char));
+        Map<Character, Integer> charToInt = s.chars()
+                .mapToObj(i -> (char) i)
+                .collect(Collectors.toMap(c -> c, c -> s.indexOf(c)));
     }
 }
