@@ -4,6 +4,11 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 //predicate is a functional interface which having single abstract method test(); return boolean
+
+/*
+* interface Predicate<T>{
+*   boolean test(condition checking of T element)
+* }*/
 public class PredicateImpl {
 
     //filter always checks boolean condition:
