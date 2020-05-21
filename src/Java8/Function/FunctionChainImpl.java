@@ -17,6 +17,6 @@ public class FunctionChainImpl {
         Function<String,String> f1=s->s.toUpperCase();
         Function<String,String> f2=s->s.substring(1,3);
 
-        System.out.println(Arrays.asList("abcdss","deffg","kdsdas").stream().map(f1.andThen(f2)).collect(Collectors.toList()));
+        System.out.println(Arrays.asList("abcdss","deffg","kdsdas").stream().map(f1.compose(f2)).collect(Collectors.toList()));
     }
 }
